@@ -1,0 +1,19 @@
+
+PhonePe Data Analyst Interview Experience (CTC 18 LPA) 
+
+🔹 SQL Questions --> IMPORTANT
+1. Write a query to calculate daily UPI transaction success rates by state.
+2. Identify users who’ve made transactions in 3+ unique cities within the same calendar month.
+3. Find the average transaction value during peak usage time (6 PM–10 PM).
+Write a query to detect merchants with 5 or more consecutive failed transactions.
+
+🔹 Python Questions
+1. Create a function to spot unusual transaction amounts using the IQR technique.
+2. Merge two transaction datasets (as dictionaries) and flag mismatched entries.
+3. How can lambda functions be useful for cleaning or transforming nested payment logs?
+
+🔹 Guesstimates & Business Sense
+1. Estimate the daily volume of UPI transactions handled by PhonePe across India.
+2. Roughly calculate the monthly count of tier-2 city users paying broadband bills via PhonePe.
+
+✨ It wasn’t just about technical skills but about how well you think, simplify, and communicate.
