@@ -1,0 +1,12 @@
+PhonePe Data Analyst Interview Experience (0–2 Years):
+
+1. Write a SQL query to find the top 5 users with the highest total payment amount in the last 2 months.
+2. Identify merchants who received payments from more than 200 unique customers.
+3. Find users who never made a failed payment.
+4. Calculate the average number of transactions per user in the last 3 months. ###########
+5. Retrieve users who made payments on at least 10 different days in the last month.
+6. Write a query to get the most used bank for each city.
+7. Find users who have at least 5 transactions above ₹10,000.
+8. Write a query to get the first and latest payment date for each merchant.
+9. Identify users who made at least 1 payment every week for the last 6 weeks.
+10. Find merchants with total transaction amount above the average merchant transaction amount in their city.
