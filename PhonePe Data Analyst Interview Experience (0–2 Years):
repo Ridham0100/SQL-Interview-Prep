@@ -10,3 +10,52 @@ PhonePe Data Analyst Interview Experience (0–2 Years):
 8. Write a query to get the first and latest payment date for each merchant.
 9. Identify users who made at least 1 payment every week for the last 6 weeks.
 10. Find merchants with total transaction amount above the average merchant transaction amount in their city.
+
+
+
+Solutions:
+
+
+1.
+
+SELECT user_id
+FROM(
+SELECT user_id,
+DENSE_RANK() OVER(PARTITION BY user_id ORDER BY amount DESC) AS rnk
+FROM Transactions
+WHERE status = 'Success'
+AND txn_date BETWEEN DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 2 MONTH),'%Y-%m-01') AND LAST_DAY(DATE_SUB(CURDATE(), INTERVAL 1 MONTH))
+) AS ranked_txns
+WHERE rnk <= 5;
+
+2. 
+
+SELECT merchant_id, COUNT(user_id) AS users_cnt
+FROM Transactions
+WHERE status = 'Success'
+GROUP BY merchant_id
+HAVING users_cnt > 200;
+
+3. 
+SELECT user_id
+FROM(
+SELECT user_id,
+SUM(CASE WHEN status = 'failed' THEN 1 ELSE 0 END) AS failed_trans
+FROM Transactions
+GROUP BY user_id
+HAVING failed_trans = 0) AS no_failures
+
+4.  
+
+SELECT
+COUNT(txn_id)/COUNT(DISTINCT user_id) AS average
+FROM Transactions
+WHERE txn_date BETWEEN DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 3 MONTH),'%Y-%m-01') AND LAST_DAY(DATE_SUB(CURDATE(), INTERVAL 1 MONTH))
+
+5. 
+
+SELECT user_id
+FROM Transactions
+WHERE txn_date BETWEEN DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH),'%Y-%m-01') AND LAST_DAY(DATE_SUB(CURDATE(), INTERVAL 1 MONTH))
+GROUP BY 1
+HAVING COUNT(DISTINCT txn_date) > 10;
